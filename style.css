@@ -12,6 +12,14 @@
   font-style: normal;
 }
 
+h1, h2, h3, strong, b {
+  font-weight: 700;
+}
+
+p {
+  font-family: 'Inter';
+  font-weight: 400;
+}
 
 
 /* Global Reset */
@@ -23,10 +31,19 @@
   
   body {
     font-family: 'Inter', sans-serif;
-    color: #000;
+    color: #555;
     background-color: #f9f9f9;
   }
   
+  .project-card p{
+    font-family: 'Inter', sans-serif;  /* Optional if inherited from body */
+    font-weight: 400;
+    font-size: 0.95rem;
+    color: #555
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+
   /* HEADER */
   header {
     padding: 20px 5%;
