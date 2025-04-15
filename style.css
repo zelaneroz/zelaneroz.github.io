@@ -310,6 +310,16 @@ p {
     display: block;
   }
   
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  a:hover {
+    color: #e600e6;
+    transition: color 0.2s ease;
+  }
+  
   
   
   

@@ -21,5 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
       card.style.transform = "rotateX(0) rotateY(0) scale(1)";
       card.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.05)";
     });
+
   });
 });
