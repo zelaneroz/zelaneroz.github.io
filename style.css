@@ -45,11 +45,7 @@ p {
     margin-bottom: 10px;
   }
 
-  .project-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-  }
+  
   
 
   /* HEADER */
@@ -302,11 +298,16 @@ p {
   .project-card:hover::after {
     opacity: 0.8;
   }
-  
 
   .project-card {
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .project-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
   }
   
   
