@@ -35,14 +35,22 @@ p {
     background-color: #f9f9f9;
   }
   
+  
   .project-card p{
     font-family: 'Inter', sans-serif;  /* Optional if inherited from body */
     font-weight: 400;
     font-size: 0.95rem;
-    color: #555
+    color: #555;
     line-height: 1.5;
     margin-bottom: 10px;
   }
+
+  .project-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  
 
   /* HEADER */
   header {
@@ -259,6 +267,47 @@ p {
     cursor: pointer;
   }
   
+  
+  .github-badge {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #5865f2;
+    background-color: #f1f3ff;
+    padding: 6px 10px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .project-card:hover .github-badge {
+    background-color: #dce0ff;
+  }
+
+  .project-card::after {
+    content: "Click to view on GitHub";
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 0.75rem;
+    background: #000;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+  
+  .project-card:hover::after {
+    opacity: 0.8;
+  }
+  
+
+  .project-card {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
   
   
   
