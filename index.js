@@ -83,3 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderGalleryStack();
 });
 
+window.addEventListener('DOMContentLoaded', () => {
+  // then run your dynamic image & text loading
+  initGallery();
+});
