@@ -138,3 +138,25 @@ projects.forEach(project => {
   link.appendChild(card);
   projectGrid.appendChild(link);
 });
+
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (projectGrid.children.length <= 1) {
+    // Inject only if fallback is the only one present
+    projects.forEach(project => {
+      const card = document.createElement("a");
+      card.href = project.link;
+      card.target = "_blank";
+      card.className = "project-link";
+      card.innerHTML = `
+        <div class="project-card">
+          <img src="${project.img}" alt="${project.title} preview">
+          <h3>${project.title}</h3>
+          <p>${project.description}</p>
+          <p><strong>Tech Stack:</strong> ${project.tech}</p>
+        </div>
+      `;
+      projectGrid.appendChild(card);
+    });
+  }
+});
