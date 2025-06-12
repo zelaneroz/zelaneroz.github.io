@@ -87,3 +87,54 @@ window.addEventListener('DOMContentLoaded', () => {
   // then run your dynamic image & text loading
   initGallery();
 });
+
+
+
+// PROJECT GRID
+
+const projects = [
+  {
+    title: "BayBai",
+    img: "src/projects/M1-Baybai.png",
+    description: "Baybai is a mobile app that teaches and revives Baybayin, the pre-colonial Filipino script. It features flashcards, a translator, and a social space for collaborative learning.",
+    tech: "Python, KivyMD, Flask, SQLite",
+    github: "https://github.com/zelaneroz/IB-CSHL-2024/tree/main/IA-Baybai"
+  },
+  {
+    title: "Club Hub",
+    img: "src/projects/W1-ClubHub.png",
+    description: "ClubHub is a full-stack web application designed to streamline the management of student-led organizations. The platform enables multiple user roles (Admin, Club Leader, Student Member) within a university to manage club activities, attendance, event planning, inventory, and internal communication, all authenticated through Google domain-restricted login (e.g., @uwcisak.jp, @case.edu)",
+    tech: "React.js, HTML5, CSS3, Node.js, Figma (Planning), Netlify (Hosting),Firebase (Database)",
+    github: "https://github.com/zelaneroz/ClubHub"
+  },
+
+  {
+    title: "Truth or Truth",
+    img: "src/projects/truth-or-truth.jpg",
+    description: "A habit-building mobile app that gamifies mental wellness and connects users with local events and prompts.",
+    tech: "React Native, Firebase, Express.js",
+    github: "https://github.com/zelaneroz/truth-or-truth"
+  },
+];
+
+const projectGrid = document.getElementById("project-grid");
+
+projects.forEach(project => {
+  const link = document.createElement("a");
+  link.href = project.github;
+  link.target = "_blank";
+  link.classList.add("project-link");
+
+  const card = document.createElement("div");
+  card.classList.add("project-card");
+
+  card.innerHTML = `
+    <img src="${project.img}" alt="project preview">
+    <h3>${project.title}</h3>
+    <p>${project.description}</p>
+    <p><strong>Tech Stack:</strong> ${project.tech}</p>
+  `;
+
+  link.appendChild(card);
+  projectGrid.appendChild(link);
+});
