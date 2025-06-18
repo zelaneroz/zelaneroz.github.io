@@ -1,0 +1,125 @@
+/* introspections.css */
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+header {
+  padding: 20px 5%;
+  background-color: #fff;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+}
+
+.nav-links a.active {
+  color: #e600e6;
+}
+
+.thoughts-section {
+  padding: 60px 5%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+#tag-filters {
+  margin-bottom: 20px;
+}
+
+#tag-filters button {
+  margin-right: 10px;
+  padding: 8px 16px;
+  border: none;
+  background-color: #eee;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+#tag-filters button.active {
+  background-color: #e600e6;
+  color: white;
+}
+
+.thoughts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.thought-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.thought-card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.thought-card .tags {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #fffefb;
+  width: 90%;
+  max-width: 800px;
+  padding: 40px;
+  border-radius: 12px;
+  font-family: 'Courier New', monospace;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+#close-modal {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
