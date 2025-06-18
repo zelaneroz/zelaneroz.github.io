@@ -1,11 +1,43 @@
-/* introspections.css */
-body {
-  font-family: 'Inter', sans-serif;
-  margin: 0;
-  background-color: #f9f9f9;
-  color: #333;
+/* === FONT IMPORTS === */
+@font-face {
+  font-family: 'Inter';
+  src: url('src/fonts/Inter_24pt-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('src/fonts/Inter_24pt-Bold.ttf') format('truetype');
+  font-weight: 700;
 }
 
+/* === GLOBAL RESET & BASE === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, p {
+  font-family: 'Inter', sans-serif;
+  color: #555;
+  background-color: #f9f9f9;
+}
+
+h1, h2, h3, strong, b {
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: #e600e6;
+  transition: color 0.2s ease;
+}
+
+/* === HEADER === */
 header {
   padding: 20px 5%;
   background-color: #fff;
@@ -16,35 +48,63 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
 }
 
 .nav-links a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #000;
   font-weight: 500;
+  transition: color 0.2s;
 }
 
-.nav-links a.active {
-  color: #e600e6;
+.resume-button {
+  background-color: #000;
+  color: #fff !important;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: background 0.2s ease;
 }
 
+.resume-button:hover {
+  background-color: #333;
+}
+
+/* === INTROSPECTIONS SECTION === */
 .thoughts-section {
   padding: 60px 5%;
   max-width: 1200px;
   margin: auto;
 }
 
+.thoughts-section h2 {
+  font-size: 2rem;
+  margin-bottom: 24px;
+}
+
+/* === Search + Filter === */
 #searchInput {
   width: 100%;
-  padding: 12px;
+  padding: 12px 16px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
+  font-size: 1rem;
 }
 
 #tag-filters {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 #tag-filters button {
@@ -55,6 +115,7 @@ header {
   border-radius: 20px;
   cursor: pointer;
   font-size: 0.9rem;
+  transition: background 0.2s;
 }
 
 #tag-filters button.active {
@@ -62,6 +123,7 @@ header {
   color: white;
 }
 
+/* === Thought Cards === */
 .thoughts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -74,11 +136,22 @@ header {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   padding: 20px;
   cursor: pointer;
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
 }
 
 .thought-card:hover {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  transform: scale(1.02);
+}
+
+.thought-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.thought-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 .thought-card .tags {
@@ -87,6 +160,7 @@ header {
   color: #777;
 }
 
+/* === MODAL === */
 .modal {
   position: fixed;
   top: 0; left: 0;
@@ -108,10 +182,29 @@ header {
   max-width: 800px;
   padding: 40px;
   border-radius: 12px;
-  font-family: 'Courier New', monospace;
   position: relative;
   max-height: 90vh;
   overflow-y: auto;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+#modal-body {
+  font-family: 'Courier New', monospace;
+  white-space: pre-wrap;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+#modal-body h2 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+}
+
+#modal-body em {
+  display: block;
+  margin-bottom: 20px;
+  color: #888;
+  font-size: 0.9rem;
 }
 
 #close-modal {
@@ -122,4 +215,5 @@ header {
   background: none;
   border: none;
   cursor: pointer;
+  color: #333;
 }
