@@ -1,4 +1,28 @@
-<!-- introspections.html -->
+---
+layout: default
+title: Introspections
+---
+
+<h2>Introspections</h2>
+
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a> —
+      <em>{{ post.date | date: "%B %d, %Y" }}</em>
+      <p>{{ post.excerpt }}</p>
+    </li>
+  {% endfor %}
+</ul>
+
+
+
+
+<!-- introspections.html
+---
+layout: default
+title: Home
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +35,7 @@
 <body>
   <header>
     <div class="nav-container">
-      <div class="logo">Zelan</div>
+      <div class="logo">Zelan Espanto</div>
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="introspections.html" class="active">Introspections</a>
@@ -47,4 +71,4 @@
 
   <script src="introspections.js"></script>
 </body>
-</html>
+</html> -->
