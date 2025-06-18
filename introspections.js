@@ -1,28 +1,25 @@
 // introspections.js
-const posts = [
+const thoughts = [
   {
-    title: "Graduation Reflection",
-    file: "posts/uwc-reflection.md",
-    tags: ["Life", "Reflections"],
-    summary: "Reflections on my UWC ISAK Japan graduation — a moment of growth, gratitude, and global friendship.",
-    date: "2024-05-19",
-    readTime: "2 min"
+    title: "Why I Fell in Love with Language Models",
+    summary: "A reflection on how I discovered NLP and its overlap with curiosity, communication, and culture.",
+    tags: ["AI", "Reflections"],
+    date: "2025-06-01",
+    content: `I first stumbled upon language models out of curiosity. But the more I read, built, and tested, the more I realized this was about far more than just code. It was about meaning — the space between words, and what it means to bridge people and cultures through machines.\n\n— Z`
   },
   {
-    title: "Winter in Mexico",
-    file: "posts/winter-mexico.md",
-    tags: ["Travel"],
-    summary: "Exploring color, culture, and community from Guadalajara to Cancún.",
-    date: "2024-12-28",
-    readTime: "3 min"
+    title: "Solo Hiking in Kyoto",
+    summary: "Wandering into the mountains of Kyoto alone taught me lessons I didn’t expect.",
+    tags: ["Travel", "Life"],
+    date: "2024-11-10",
+    content: `Kyoto’s trails humbled me. I came looking for peace and found it in the quiet discomfort of getting lost, meeting strangers, and trusting the path.\n\n— Z`
   },
   {
-    title: "Iceland Fellowship",
-    file: "posts/iceland-fellowship.md",
-    tags: ["Reflections", "Sustainability"],
-    summary: "Lessons and laughter from my ThinkImpact fellowship across Iceland’s sustainable ecosystem.",
-    date: "2025-03-14",
-    readTime: "3 min"
+    title: "The Math of Uncertainty",
+    summary: "On learning to embrace risk through data and intuition.",
+    tags: ["Life", "AI"],
+    date: "2025-03-15",
+    content: `We try to predict everything — markets, weather, even people. But some of the best things in life come from not knowing. Data helps. So does trust.\n\n— Z`
   }
 ];
 
@@ -33,31 +30,20 @@ const closeModal = document.getElementById('close-modal');
 const searchInput = document.getElementById('searchInput');
 const filterButtons = document.querySelectorAll('#tag-filters button');
 
-function renderPosts(postsToShow) {
-  thoughtsGrid.innerHTML = '';
-
-  postsToShow.forEach(post => {
-    const card = document.createElement("div");
-    card.className = "thought-card";
+function renderCards(data) {
+  grid.innerHTML = '';
+  data.forEach(thought => {
+    const card = document.createElement('div');
+    card.className = 'thought-card';
     card.innerHTML = `
-      <h3>${post.title}</h3>
-      <p class="summary">${post.summary}</p>
-      <p class="tags">${post.tags.join(', ')}</p>
-      <p class="date">${post.date} • ${post.readTime}</p>
+      <h3>${thought.title}</h3>
+      <p>${thought.summary}</p>
+      <div class="tags">${thought.tags.join(', ')} | ${thought.date}</div>
     `;
-    card.addEventListener("click", () => {
-      fetch(post.file)
-        .then(res => res.text())
-        .then(content => {
-          document.getElementById("modal-body").innerHTML = marked(content);
-          modal.classList.remove("hidden");
-        });
-    });
-
-    thoughtsGrid.appendChild(card);
+    card.addEventListener('click', () => openModal(thought));
+    grid.appendChild(card);
   });
 }
-
 
 function openModal(thought) {
   modalBody.innerHTML = `
